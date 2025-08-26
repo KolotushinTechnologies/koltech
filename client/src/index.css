@@ -1,0 +1,288 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  
+  body {
+    @apply bg-background text-foreground font-display;
+    font-feature-settings: "rlig" 1, "calt" 1;
+  }
+  
+  html {
+    scroll-behavior: smooth;
+  }
+}
+
+@layer components {
+  /* Premium Animations */
+  .animate-float {
+    animation: float 6s ease-in-out infinite;
+  }
+  
+  .animate-pulse-slow {
+    animation: pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+  }
+  
+  .animate-glow {
+    animation: glow 2s ease-in-out infinite alternate;
+  }
+  
+  .animate-shimmer {
+    animation: shimmer 2s linear infinite;
+  }
+  
+  .animate-slide-up {
+    animation: slideUp 0.5s ease-out;
+  }
+  
+  .animate-slide-down {
+    animation: slideDown 0.5s ease-out;
+  }
+  
+  .animate-fade-in {
+    animation: fadeIn 0.3s ease-out;
+  }
+  
+  .animate-scale-in {
+    animation: scaleIn 0.2s ease-out;
+  }
+  
+  /* Premium Effects */
+  .glass-effect {
+    @apply bg-white/5 backdrop-blur-xl border border-white/10;
+  }
+  
+  .glass-effect-dark {
+    @apply bg-dark-800/80 backdrop-blur-xl border border-dark-700/50;
+  }
+  
+  .gradient-text {
+    @apply bg-gradient-to-r from-primary-400 via-accent-purple to-accent-pink bg-clip-text text-transparent;
+  }
+  
+  .gradient-border {
+    @apply relative overflow-hidden rounded-xl;
+  }
+  
+  .gradient-border::before {
+    @apply absolute inset-0 rounded-xl p-[1px] bg-gradient-to-r from-primary-500 via-accent-purple to-accent-pink;
+    content: '';
+    mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    mask-composite: exclude;
+  }
+  
+  .neon-glow {
+    @apply shadow-lg;
+    box-shadow:
+      0 0 20px rgba(59, 130, 246, 0.3),
+      0 0 40px rgba(139, 92, 246, 0.2),
+      0 0 60px rgba(236, 72, 153, 0.1);
+  }
+  
+  .neon-glow-green {
+    @apply shadow-lg;
+    box-shadow:
+      0 0 20px rgba(16, 185, 129, 0.3),
+      0 0 40px rgba(16, 185, 129, 0.2),
+      0 0 60px rgba(16, 185, 129, 0.1);
+  }
+  
+  .card-hover {
+    @apply transition-all duration-300 ease-out;
+  }
+  
+  .card-hover:hover {
+    @apply transform -translate-y-2 scale-[1.02];
+    box-shadow:
+      0 25px 50px -12px rgba(0, 0, 0, 0.4),
+      0 0 30px rgba(59, 130, 246, 0.1);
+  }
+  
+  .tech-pattern {
+    background-image:
+      radial-gradient(circle at 2px 2px, rgba(255,255,255,0.05) 1px, transparent 0),
+      linear-gradient(45deg, transparent 25%, rgba(255,255,255,0.02) 25%, rgba(255,255,255,0.02) 50%, transparent 50%, transparent 75%, rgba(255,255,255,0.02) 75%);
+    background-size: 40px 40px, 60px 60px;
+  }
+  
+  .mesh-gradient {
+    background: linear-gradient(45deg, #667eea 0%, #764ba2 25%, #f093fb 50%, #f5576c 75%, #4facfe 100%);
+    background-size: 400% 400%;
+    animation: meshMove 15s ease infinite;
+  }
+  
+  /* Button Styles */
+  .btn-primary {
+    @apply bg-gradient-to-r from-primary-500 to-accent-purple text-white font-semibold py-3 px-6 rounded-xl;
+    @apply hover:shadow-xl hover:scale-105 transition-all duration-300;
+    @apply focus:outline-none focus:ring-2 focus:ring-primary-500/50;
+  }
+  
+  .btn-secondary {
+    @apply border-2 border-primary-500 text-primary-400 font-semibold py-3 px-6 rounded-xl;
+    @apply hover:bg-primary-500 hover:text-white transition-all duration-300;
+    @apply focus:outline-none focus:ring-2 focus:ring-primary-500/50;
+  }
+  
+  .btn-ghost {
+    @apply text-gray-300 font-medium py-2 px-4 rounded-lg;
+    @apply hover:bg-white/5 hover:text-white transition-all duration-200;
+  }
+  
+  /* Input Styles */
+  .input-primary {
+    @apply w-full bg-dark-700 border border-dark-600 rounded-xl px-4 py-3 text-white placeholder-gray-500;
+    @apply focus:border-primary-500 focus:outline-none focus:ring-2 focus:ring-primary-500/20;
+    @apply transition-all duration-200;
+  }
+  
+  /* Custom Scrollbar */
+  .custom-scrollbar::-webkit-scrollbar {
+    width: 6px;
+  }
+  
+  .custom-scrollbar::-webkit-scrollbar-track {
+    @apply bg-dark-800;
+  }
+  
+  .custom-scrollbar::-webkit-scrollbar-thumb {
+    @apply bg-primary-500/50 rounded-full;
+  }
+  
+  .custom-scrollbar::-webkit-scrollbar-thumb:hover {
+    @apply bg-primary-500;
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+}
+
+/* Keyframes */
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0px) rotate(0deg);
+  }
+  33% {
+    transform: translateY(-10px) rotate(1deg);
+  }
+  66% {
+    transform: translateY(-5px) rotate(-1deg);
+  }
+}
+
+@keyframes glow {
+  from {
+    box-shadow: 0 0 20px -10px rgba(59, 130, 246, 0.5);
+  }
+  to {
+    box-shadow: 0 0 30px -5px rgba(59, 130, 246, 0.8);
+  }
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: -200px 0;
+  }
+  100% {
+    background-position: calc(200px + 100%) 0;
+  }
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes scaleIn {
+  from {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes meshMove {
+  0%, 100% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+}
+
+/* Loading Animations */
+.loading-dots {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.loading-dots::after {
+  content: '';
+  display: inline-block;
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background: currentColor;
+  animation: loading-dots 1.4s infinite ease-in-out both;
+}
+
+.loading-dots::before {
+  content: '';
+  display: inline-block;
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background: currentColor;
+  margin-right: 4px;
+  animation: loading-dots 1.4s infinite ease-in-out both;
+  animation-delay: -0.16s;
+}
+
+@keyframes loading-dots {
+  0%, 80%, 100% {
+    transform: scale(0);
+    opacity: 0.5;
+  }
+  40% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
